@@ -9,6 +9,8 @@ function create(query, args, innerHTML) {
 		for (var className of query.split(".").slice(1)) {
 			el.classList.add(className);
 		}
+	} else {
+		el = document.createElement(query);
 	}
 
 	if (args instanceof Object) {
