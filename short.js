@@ -1,10 +1,14 @@
 function create(query, args, innerHTML) {
 	var el;
 	if (query.includes("#")) {
+		if (query.startsWith("#")) query = "div" + query;
+
 		el = document.createElement(query.split("#")[0]);
 		el.id = query.split("#")[1];
 
 	} else if (query.includes(".")) {
+		if (query.startsWith(".")) query = "div" + query;
+
 		el = document.createElement(query.split(".")[0]);
 		for (var className of query.split(".").slice(1)) {
 			el.classList.add(className);
@@ -19,8 +23,8 @@ function create(query, args, innerHTML) {
 		});
 	}
 
-	if (typeof(innerHTML) === "string")
-		el.innerHTML = innerHTML;
+	if (innerHTML !== undefined)
+		el.innerHTML = innerHTML.toString();
 
 	_addFunctionsToElement(el);
 
