@@ -34,3 +34,4 @@ create("TagName", {attribute: value}, "innerHTML");
 
 # Future
 - Work on a way to do `getAll("p").empty()` (Maybe add an own list-type-class-thing)
+- Add getFirst() to returned elements so you can do `getFirst("#div-1").getFirst("#child-1")`
